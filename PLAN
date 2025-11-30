@@ -1,0 +1,8 @@
+/ (root)
+  ├─ index.html
+  ├─ timeline.html
+  ├─ people.html
+  ├─ landmarks.html
+  ├─ sources.html
+  ├─ style.css
+  └─ script.js   (optional for now)
