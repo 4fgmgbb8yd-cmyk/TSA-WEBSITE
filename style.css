@@ -1,22 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@600;700&display=swap');
 body {
   margin: 0;
-  font-family: "Work Sans", sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: #ffffff;
   color: #222;
   line-height: 1.6;
 }
 
 /* Navigation Bar */
-/* Logo next to site title */
-.site-logo {
-  width: 50px;          /* adjust size as needed */
-  height: auto;
-  margin-right: 12px;   /* space between logo and title */
-  vertical-align: middle;
-  border-radius: 4px;   /* optional: slightly rounded corners */
-}
-
 .top-bar {
   background-color: #111;
   border-bottom: 4px solid #800000;
@@ -38,64 +28,25 @@ body {
 }
 
 nav a {
-  position: relative;
-  font-family: 'Work Sans', Arial, sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 13px;
-
   color: white;
   text-decoration: none;
   margin-left: 18px;
-  padding-left: 16px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
 }
 
-/* Dot hidden by default */
-nav a::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-
-  width: 7px;
-  height: 7px;
-  background-color: #c4162a;
-  border-radius: 50%;
-
-  opacity: 0;
-  transform: translateY(-220%) scale(0.6);
+nav a:hover {
+  text-decoration: underline;
 }
 
-nav a:hover::before {
-  opacity: 1;
-  animation: dotSpring 0.6s cubic-bezier(.34,1.56,.64,1) forwards;
+.site-logo {
+  width: 40px;           /* keeps it small */
+  height: auto;
+  margin-right: 12px;    /* space between logo and title */
+  margin-left: 0;         /* remove default spacing */
+  vertical-align: middle;
 }
 
-/* Spring-style motion */
-@keyframes dotSpring {
-  0% {
-    transform: translateY(-220%) scale(0.6);
-  }
-  45% {
-    transform: translateY(-30%) scale(1.15);
-  }
-  60% {
-    transform: translateY(-70%) scale(0.9);
-  }
-  75% {
-    transform: translateY(-45%) scale(1.05);
-  }
-  88% {
-    transform: translateY(-55%) scale(0.98);
-  }
-  100% {
-    transform: translateY(-50%) scale(1);
-  }
-}
-
-
- 
 
 /* Main Content */
 .main-container {
@@ -138,5 +89,4 @@ nav a:hover::before {
   color: #555;
   margin-top: 60px;
 }
-
 
