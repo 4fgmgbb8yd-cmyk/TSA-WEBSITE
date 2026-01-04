@@ -8,6 +8,15 @@ body {
 }
 
 /* Navigation Bar */
+/* Logo next to site title */
+.site-logo {
+  width: 50px;          /* adjust size as needed */
+  height: auto;
+  margin-right: 12px;   /* space between logo and title */
+  vertical-align: middle;
+  border-radius: 4px;   /* optional: slightly rounded corners */
+}
+
 .top-bar {
   background-color: #111;
   border-bottom: 4px solid #800000;
@@ -129,4 +138,5 @@ nav a:hover::before {
   color: #555;
   margin-top: 60px;
 }
+
 
