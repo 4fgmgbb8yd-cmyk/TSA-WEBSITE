@@ -1,31 +1,32 @@
-const images = document.querySelectorAll(".carousel-track img");
+const track = document.querySelector(".carousel-track");
+const items = Array.from(document.querySelectorAll(".carousel-item"));
 const prevBtn = document.querySelector(".carousel-btn.left");
 const nextBtn = document.querySelector(".carousel-btn.right");
 
 let currentIndex = 0;
 
 function updateCarousel() {
-  images.forEach((img, index) => {
-    img.classList.remove("active", "prev", "next");
+  // Calculate the offset to center the active image
+  const offset = -currentIndex * (items[0].offsetWidth + 20); // 20px gap
+  track.style.transform = `translateX(${offset}px)`;
 
+  items.forEach((item, index) => {
+    item.classList.remove("active");
     if (index === currentIndex) {
-      img.classList.add("active");
-    } else if (index === (currentIndex - 1 + images.length) % images.length) {
-      img.classList.add("prev");
-    } else if (index === (currentIndex + 1) % images.length) {
-      img.classList.add("next");
+      item.classList.add("active");
     }
   });
 }
 
 prevBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  currentIndex = (currentIndex - 1 + items.length) % items.length;
   updateCarousel();
 });
 
 nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % images.length;
+  currentIndex = (currentIndex + 1) % items.length;
   updateCarousel();
 });
 
+// Initialize
 updateCarousel();
