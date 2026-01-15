@@ -150,11 +150,11 @@ body {
   margin-top: 60px;
 }
 
-/* ===== CENTERED FOCUSED CAROUSEL ===== */
+/* ===== CAROUSEL BASE ===== */
 .carousel {
   position: relative;
   width: 100%;
-  max-width: 900px;       /* compressed look */
+  max-width: 900px;
   margin: 0 auto;
   padding: 2rem 0;
 }
@@ -168,35 +168,45 @@ body {
   display: flex;
   align-items: center;
   transition: transform 0.5s ease;
+  visibility: hidden; /* hidden until images loaded */
 }
 
-/* carousel items */
+.carousel-track.loaded {
+  visibility: visible;
+}
+
+/* ===== CAROUSEL ITEMS ===== */
 .carousel-item {
-  flex: 0 0 50%;           /* width of each item (compressed) */
+  flex: 0 0 50%;
   display: flex;
   justify-content: center;
-  opacity: 0.4;            /* faded side images */
-  transform: scale(0.8);   /* smaller side images */
+  opacity: 0.4;
+  transform: scale(0.8);
   transition: transform 0.5s ease, opacity 0.5s ease;
-  margin: 0 -60px;         /* overlap side images */
-  border-radius: 24px;     /* rounded corners */
-  overflow: hidden;        /* prevent image spill over rounded corners */
+  margin: 0 -60px;
+  border-radius: 24px;
+  overflow: hidden;
+
+  /* reserve space so images don't shift */
+  min-height: 320px;
+  max-height: 400px;
 }
 
 .carousel-item img {
   width: 100%;
-  border-radius: 24px;
+  height: 100%;
   object-fit: cover;
+  border-radius: 24px;
 }
 
-/* active/focused item */
+/* active item */
 .carousel-item.active {
   opacity: 1;
   transform: scale(1);
   z-index: 2;
 }
 
-/* arrows */
+/* ===== ARROWS ===== */
 .carousel-btn {
   position: absolute;
   top: 50%;
@@ -219,13 +229,14 @@ body {
   background: rgba(0,0,0,0.75);
 }
 
-/* responsive */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .carousel-item {
-    flex: 0 0 70%;         /* wider on small screens */
+    flex: 0 0 70%;
     margin: 0 -40px;
   }
 }
+
 
 
 
