@@ -4,94 +4,88 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextBtn = document.querySelector(".carousel-btn.right");
   if (!track || !prevBtn || !nextBtn) return;
 
-  let items = Array.from(track.querySelectorAll(".carousel-item"));
+  let items = Array.from(document.querySelectorAll(".carousel-item"));
+  let currentIndex = 1;
 
-  // ===== Clone first & last for infinite loop =====
+  // ===== Clone first and last for infinite loop =====
   const firstClone = items[0].cloneNode(true);
   const lastClone = items[items.length - 1].cloneNode(true);
   track.appendChild(firstClone);
   track.insertBefore(lastClone, items[0]);
-  items = Array.from(track.querySelectorAll(".carousel-item"));
+  items = Array.from(document.querySelectorAll(".carousel-item"));
 
-  // ===== Preload all images =====
+  // ===== Helper: preload image =====
   function preloadImage(img) {
-    return new Promise(resolve => {
-      if (!img) return resolve();
-      if (img.complete) return resolve();
-      const preload = new Image();
-      preload.src = img.src;
-      preload.onload = () => resolve();
-      preload.onerror = () => resolve();
-    });
+    if (!img || img.dataset.preloaded) return;
+    const preload = new Image();
+    preload.src = img.src;
+    img.dataset.preloaded = "true";
   }
 
-  async function preloadAll() {
-    await Promise.all(items.map(item => preloadImage(item.querySelector("img"))));
+  // ===== Preload first batch of images =====
+  function preloadNextImages(currentIndex, count = 3) {
+    for (let i = 1; i <= count; i++) {
+      const nextIndex = (currentIndex + i) % items.length;
+      preloadImage(items[nextIndex].querySelector("img"));
+    }
   }
 
-  preloadAll().then(() => {
-    track.classList.add("loaded");
+  // ===== Calculate offset to center item =====
+  function getItemOffset(index) {
+    const item = items[index];
+    const trackWidth = track.offsetWidth;
+    const itemWidth = item.offsetWidth;
+    const style = window.getComputedStyle(item);
+    const marginRight = parseFloat(style.marginRight);
+    const marginLeft = parseFloat(style.marginLeft);
+    const totalWidth = itemWidth + marginLeft + marginRight;
+    return totalWidth * index - trackWidth / 2 + totalWidth / 2;
+  }
 
-    let currentIndex = 1; // start at first real item
+  // ===== Update carousel position =====
+  function updateCarousel(animate = true) {
+    track.style.transition = animate ? "transform 0.5s ease" : "none";
+    track.style.transform = `translateX(${-getItemOffset(currentIndex)}px)`;
 
-    // ===== Helper: calculate total width of item including margins =====
-    function getTotalWidth(item) {
-      const style = window.getComputedStyle(item);
-      const marginLeft = parseFloat(style.marginLeft) || 0;
-      const marginRight = parseFloat(style.marginRight) || 0;
-      return item.offsetWidth + marginLeft + marginRight;
-    }
-
-    // ===== Calculate offset to center active item =====
-    function getOffset(index) {
-      const trackWidth = track.offsetWidth;
-      let offset = 0;
-      for (let i = 0; i < index; i++) {
-        offset += getTotalWidth(items[i]);
-      }
-      offset += getTotalWidth(items[index]) / 2 - trackWidth / 2;
-      return offset;
-    }
-
-    // ===== Update carousel position =====
-    function update(animate = true) {
-      track.style.transition = animate ? "transform 0.5s ease" : "none";
-      track.style.transform = `translateX(${-getOffset(currentIndex)}px)`;
-
-      items.forEach((item, i) => {
-        item.classList.toggle("active", i === currentIndex);
-      });
-    }
-
-    // ===== Infinite loop snap =====
-    track.addEventListener("transitionend", () => {
-      if (currentIndex === 0) {
-        track.style.transition = "none";
-        currentIndex = items.length - 2;
-        update(false);
-      }
-      if (currentIndex === items.length - 1) {
-        track.style.transition = "none";
-        currentIndex = 1;
-        update(false);
-      }
+    items.forEach((item, index) => {
+      item.classList.toggle("active", index === currentIndex);
     });
 
-    // ===== Buttons =====
-    nextBtn.addEventListener("click", () => {
-      currentIndex++;
-      update(true);
-    });
+    // preload the next 3 images
+    preloadNextImages(currentIndex, 3);
+  }
 
-    prevBtn.addEventListener("click", () => {
-      currentIndex--;
-      update(true);
-    });
-
-    // ===== Responsive =====
-    window.addEventListener("resize", () => update(false));
-
-    // ===== Initial render =====
-    update(false);
+  // ===== Infinite loop snapping =====
+  track.addEventListener("transitionend", () => {
+    if (currentIndex === 0) {
+      track.style.transition = "none";
+      currentIndex = items.length - 2;
+      updateCarousel(false);
+    }
+    if (currentIndex === items.length - 1) {
+      track.style.transition = "none";
+      currentIndex = 1;
+      updateCarousel(false);
+    }
   });
+
+  // ===== Initial positioning =====
+  updateCarousel(false);
+
+  // ===== Next / Prev buttons =====
+  nextBtn.addEventListener("click", () => {
+    currentIndex++;
+    updateCarousel(true);
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex--;
+    updateCarousel(true);
+  });
+
+  // ===== Recenter on window resize =====
+  window.addEventListener("resize", () => updateCarousel(false));
+
+  // ===== Preload initial images to avoid teleport =====
+  preloadNextImages(currentIndex, 3);
 });
