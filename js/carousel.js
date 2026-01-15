@@ -1,44 +1,11 @@
 const track = document.querySelector(".carousel-track");
-const items = Array.from(document.querySelectorAll(".carousel-item"));
-const prevBtn = document.querySelector(".carousel-btn.left");
-const nextBtn = document.querySelector(".carousel-btn.right");
-
-let currentIndex = 0;
-
-function updateCarousel() {
-  // Calculate the offset to center the active image
-  const offset = -currentIndex * (items[0].offsetWidth + 20); // 20px gap
-  track.style.transform = `translateX(${offset}px)`;
-
-  items.forEach((item, index) => {
-    item.classList.remove("active");
-    if (index === currentIndex) {
-      item.classList.add("active");
-    }
-  });
-}
-
-prevBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + items.length) % items.length;
-  updateCarousel();
-});
-
-nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % items.length;
-  updateCarousel();
-});
-
-// Initialize
-updateCarousel();
-const track = document.querySelector(".carousel-track");
 let items = Array.from(document.querySelectorAll(".carousel-item"));
 const prevBtn = document.querySelector(".carousel-btn.left");
 const nextBtn = document.querySelector(".carousel-btn.right");
 
-const visibleIndexOffset = 1; // center image
-let currentIndex = visibleIndexOffset;
+let currentIndex = 1;
 
-// Clone first and last items for infinite loop
+// clone for infinite loop
 const firstClone = items[0].cloneNode(true);
 const lastClone = items[items.length - 1].cloneNode(true);
 
@@ -58,10 +25,10 @@ function updateCarousel(animate = true) {
   });
 }
 
-// Initial position
+// initial position
 updateCarousel(false);
 
-// Next
+// next
 nextBtn.addEventListener("click", () => {
   currentIndex++;
   updateCarousel();
@@ -74,7 +41,7 @@ nextBtn.addEventListener("click", () => {
   }
 });
 
-// Previous
+// prev
 prevBtn.addEventListener("click", () => {
   currentIndex--;
   updateCarousel();
