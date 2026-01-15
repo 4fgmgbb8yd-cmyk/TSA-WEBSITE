@@ -150,11 +150,22 @@ body {
   margin-top: 60px;
 }
 
+/* ===== Gallery ===== */
+.carousel {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-viewport {
+  overflow: hidden;           /* hide items outside viewport */
+  width: 100%;
+}
+
 .carousel-track {
   display: flex;
   align-items: center;
   transition: transform 0.5s ease;
-  visibility: hidden; /* hidden until all images loaded */
+  visibility: hidden;         /* hide until images loaded */
 }
 
 .carousel-track.loaded {
@@ -162,13 +173,13 @@ body {
 }
 
 .carousel-item {
-  flex: 0 0 50%;
+  flex: 0 0 50%;              /* 50% of viewport width */
   display: flex;
   justify-content: center;
-  opacity: 0.4;
-  transform: scale(0.8);
+  opacity: 0.4;               /* faded side images */
+  transform: scale(0.8);      /* smaller side images */
   transition: transform 0.5s ease, opacity 0.5s ease;
-  margin: 0 -60px;
+  margin: 0 10px;             /* spacing between images */
   border-radius: 24px;
   overflow: hidden;
   min-height: 320px;
@@ -183,10 +194,41 @@ body {
 }
 
 .carousel-item.active {
-  opacity: 1;
-  transform: scale(1);
+  opacity: 1;                 /* main image fully visible */
+  transform: scale(1);        /* main image full size */
   z-index: 2;
 }
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  background: rgba(0,0,0,0.3);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 3;
+  border-radius: 8px;
+}
+
+.carousel-btn.left {
+  left: 10px;
+}
+
+.carousel-btn.right {
+  right: 10px;
+}
+
+/* Responsive: make items full width on mobile */
+@media (max-width: 820px) {
+  .carousel-item {
+    flex: 0 0 80%;
+    margin: 0 8px;
+  }
+}
+
 
 
 
