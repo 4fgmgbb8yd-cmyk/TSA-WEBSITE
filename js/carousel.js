@@ -2,68 +2,70 @@ document.addEventListener("DOMContentLoaded", () => {
   const track = document.querySelector(".carousel-track");
   const prevBtn = document.querySelector(".carousel-btn.left");
   const nextBtn = document.querySelector(".carousel-btn.right");
-  if (!track || !prevBtn || !nextBtn) return; // stop if elements not found
+  if (!track || !prevBtn || !nextBtn) return;
 
   let items = Array.from(document.querySelectorAll(".carousel-item"));
   let currentIndex = 1;
 
-  // Clone first and last items for infinite loop
+  // clone first and last items
   const firstClone = items[0].cloneNode(true);
   const lastClone = items[items.length - 1].cloneNode(true);
   track.appendChild(firstClone);
   track.insertBefore(lastClone, items[0]);
   items = Array.from(document.querySelectorAll(".carousel-item"));
 
-  // Function to center active item
-  function updateCarousel(animate = true) {
+  function getItemOffset(index) {
+    const item = items[index];
     const trackWidth = track.offsetWidth;
-    const itemWidth = items[0].offsetWidth;
+    const itemWidth = item.offsetWidth;
+    const itemStyle = window.getComputedStyle(item);
+    const marginRight = parseFloat(itemStyle.marginRight);
+    const marginLeft = parseFloat(itemStyle.marginLeft);
+    const totalWidth = itemWidth + marginLeft + marginRight;
+    return totalWidth * index - trackWidth / 2 + totalWidth / 2;
+  }
 
-    // Calculate offset to center the active item
-    const offset = itemWidth * currentIndex - trackWidth / 2 + itemWidth / 2;
-
+  function updateCarousel(animate = true) {
     track.style.transition = animate ? "transform 0.5s ease" : "none";
+    const offset = getItemOffset(currentIndex);
     track.style.transform = `translateX(${-offset}px)`;
 
-    // Update active class for scale/fade effect
     items.forEach((item, index) => {
       item.classList.toggle("active", index === currentIndex);
     });
   }
 
-  // Initial position
+  // initial
   updateCarousel(false);
 
-  // Next button
+  // next
   nextBtn.addEventListener("click", () => {
     currentIndex++;
     updateCarousel();
 
     if (currentIndex === items.length - 1) {
       setTimeout(() => {
-        currentIndex = 1; // jump to real first
+        currentIndex = 1;
         updateCarousel(false);
       }, 500);
     }
   });
 
-  // Previous button
+  // prev
   prevBtn.addEventListener("click", () => {
     currentIndex--;
     updateCarousel();
 
     if (currentIndex === 0) {
       setTimeout(() => {
-        currentIndex = items.length - 2; // jump to real last
+        currentIndex = items.length - 2;
         updateCarousel(false);
       }, 500);
     }
   });
 
-  // Recalculate positions on window resize
+  // responsive
   window.addEventListener("resize", () => {
     updateCarousel(false);
   });
 });
-
-
