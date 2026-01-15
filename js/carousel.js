@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let items = Array.from(track.querySelectorAll(".carousel-item"));
 
-  // ===== Preload single image =====
+  // ===== Preload a single image =====
   function preloadImage(img) {
     return new Promise((resolve) => {
       if (!img) return resolve();
@@ -29,13 +29,22 @@ document.addEventListener("DOMContentLoaded", () => {
     track.insertBefore(lastClone, items[0]);
 
     items = Array.from(track.querySelectorAll(".carousel-item"));
+
+    // Preload cloned images too
     await Promise.all(items.map(item => preloadImage(item.querySelector("img"))));
+  }
+
+  // ===== Preload 3 images ahead dynamically =====
+  function preloadNextImages(currentIndex) {
+    for (let i = 1; i <= 3; i++) {
+      const nextIndex = (currentIndex + i) % items.length;
+      preloadImage(items[nextIndex].querySelector("img"));
+    }
   }
 
   // ===== Initialize Carousel =====
   preloadAllImages().then(() => {
     track.classList.add("loaded");
-
     let currentIndex = 1; // start at first real item
 
     function getItemOffset(index) {
@@ -47,9 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
       track.style.transition = animate ? "transform 0.5s ease" : "none";
       track.style.transform = `translateX(${-getItemOffset(currentIndex)}px)`;
       items.forEach((item, index) => item.classList.toggle("active", index === currentIndex));
+
+      // Preload next 3 images to avoid blank spaces
+      preloadNextImages(currentIndex);
     }
 
-    // Looping logic
+    // Infinite loop handling
     track.addEventListener("transitionend", () => {
       if (currentIndex === 0) {
         track.style.transition = "none";
