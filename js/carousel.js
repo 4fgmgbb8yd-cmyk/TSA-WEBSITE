@@ -7,6 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
   let items = Array.from(document.querySelectorAll(".carousel-item"));
   let currentIndex = 1;
 
+  // Preload images
+  items.forEach(item => {
+    const img = item.querySelector("img");
+    if (img) {
+      const preload = new Image();
+      preload.src = img.src;
+    }
+  });
+
   // clone first and last items
   const firstClone = items[0].cloneNode(true);
   const lastClone = items[items.length - 1].cloneNode(true);
@@ -18,54 +27,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const item = items[index];
     const trackWidth = track.offsetWidth;
     const itemWidth = item.offsetWidth;
-    const itemStyle = window.getComputedStyle(item);
-    const marginRight = parseFloat(itemStyle.marginRight);
-    const marginLeft = parseFloat(itemStyle.marginLeft);
+    const style = window.getComputedStyle(item);
+    const marginRight = parseFloat(style.marginRight);
+    const marginLeft = parseFloat(style.marginLeft);
     const totalWidth = itemWidth + marginLeft + marginRight;
     return totalWidth * index - trackWidth / 2 + totalWidth / 2;
   }
 
   function updateCarousel(animate = true) {
     track.style.transition = animate ? "transform 0.5s ease" : "none";
-    const offset = getItemOffset(currentIndex);
-    track.style.transform = `translateX(${-offset}px)`;
-
+    track.style.transform = `translateX(${-getItemOffset(currentIndex)}px)`;
     items.forEach((item, index) => {
       item.classList.toggle("active", index === currentIndex);
     });
   }
 
+  // Snap to real item after transition
+  track.addEventListener("transitionend", () => {
+    if (currentIndex === 0) {
+      track.style.transition = "none";
+      currentIndex = items.length - 2;
+      updateCarousel(false);
+    }
+    if (currentIndex === items.length - 1) {
+      track.style.transition = "none";
+      currentIndex = 1;
+      updateCarousel(false);
+    }
+  });
+
   // initial
   updateCarousel(false);
 
-  // next
   nextBtn.addEventListener("click", () => {
     currentIndex++;
-    updateCarousel();
-
-    if (currentIndex === items.length - 1) {
-      setTimeout(() => {
-        currentIndex = 1;
-        updateCarousel(false);
-      }, 500);
-    }
+    updateCarousel(true);
   });
 
-  // prev
   prevBtn.addEventListener("click", () => {
     currentIndex--;
-    updateCarousel();
-
-    if (currentIndex === 0) {
-      setTimeout(() => {
-        currentIndex = items.length - 2;
-        updateCarousel(false);
-      }, 500);
-    }
+    updateCarousel(true);
   });
 
-  // responsive
-  window.addEventListener("resize", () => {
-    updateCarousel(false);
-  });
+  window.addEventListener("resize", () => updateCarousel(false));
 });
