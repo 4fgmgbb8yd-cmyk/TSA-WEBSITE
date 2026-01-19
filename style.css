@@ -445,3 +445,149 @@ body {
 .timeline-event.right .timeline-box {
   margin-left: 60px;
 }
+/* ===== INFOGRAPHIC TIMELINE ===== */
+
+.infographic-timeline {
+  margin: 100px auto;
+  text-align: center;
+}
+
+.timeline-heading {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 80px;
+  letter-spacing: 0.15em;
+}
+
+/* Wrapper */
+.timeline-wrapper {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Vertical spine */
+.timeline-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 10px;
+  background: #111;
+  transform: translateX(-50%);
+  border-radius: 6px;
+}
+
+/* Rows */
+.timeline-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 80px;
+  position: relative;
+}
+
+.timeline-row.left {
+  justify-content: flex-start;
+}
+
+.timeline-row.right {
+  justify-content: flex-end;
+}
+
+/* Dot */
+.timeline-dot {
+  width: 18px;
+  height: 18px;
+  background: #d9483b;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+/* Card base */
+.timeline-card {
+  width: 320px;
+  padding: 20px 26px;
+  color: white;
+  text-align: left;
+  position: relative;
+  font-size: 15px;
+}
+
+/* Arrow shapes */
+.timeline-card::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 16px solid transparent;
+  border-bottom: 16px solid transparent;
+}
+
+/* Left arrow */
+.timeline-row.left .timeline-card {
+  margin-right: 70px;
+}
+
+.timeline-row.left .timeline-card::after {
+  right: -16px;
+  border-left: 16px solid currentColor;
+}
+
+/* Right arrow */
+.timeline-row.right .timeline-card {
+  margin-left: 70px;
+}
+
+.timeline-row.right .timeline-card::after {
+  left: -16px;
+  border-right: 16px solid currentColor;
+}
+
+/* Color themes */
+.timeline-card.blue {
+  background: #1f5fd1;
+}
+
+.timeline-card.red {
+  background: #e14c3b;
+}
+
+/* Card text */
+.timeline-card h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.timeline-card p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Mobile */
+@media (max-width: 800px) {
+  .timeline-wrapper::before {
+    left: 20px;
+  }
+
+  .timeline-row {
+    justify-content: flex-start !important;
+  }
+
+  .timeline-dot {
+    left: 20px;
+  }
+
+  .timeline-card {
+    margin-left: 50px !important;
+    width: calc(100% - 70px);
+  }
+
+  .timeline-card::after {
+    display: none;
+  }
+}
