@@ -337,221 +337,46 @@ body {
     max-height: 420px;
   }
 }
-/* ===== TIMELINE ===== */
+/* ===== MUSEUM-STYLE TIMELINE ===== */
+
 .timeline-section {
-  margin-bottom: 80px;
+  margin: 100px auto;
 }
 
-.timeline {
-  position: relative;
-  margin: 40px 0;
-  padding-left: 30px;
-  border-left: 3px solid #4980E6;
-}
-
-.timeline-item {
-  position: relative;
-  margin-bottom: 32px;
-}
-
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  left: -12px;
-  top: 6px;
-  width: 14px;
-  height: 14px;
-  background: #D17E01;
-  border-radius: 50%;
-}
-
-.timeline-year {
+.timeline-title {
+  font-size: 38px;
   font-weight: 700;
-  font-size: 16px;
+  margin-bottom: 80px;
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: #222;
-  cursor: pointer;
-  position: relative;
 }
 
-/* POPUP PREVIEW */
-.timeline-year::after {
-  content: attr(data-preview);
-  position: absolute;
-  left: 120%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 220px;
-  background: #ffffff;
-  color: #333;
-  font-size: 13px;
-  line-height: 1.5;
-  padding: 12px 14px;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  z-index: 5;
-}
-
-.timeline-year:hover::after {
-  opacity: 1;
-  transform: translate(8px, -50%);
-}
-
-/* ===== DETAIL SECTIONS ===== */
-.timeline-details {
-  margin-top: 60px;
-}
-
-.year-block {
-  padding: 24px;
-  margin-bottom: 32px;
-  border-left: 4px solid #4980E6;
-  background: #f9f9f9;
-  border-radius: 8px;
-}
-
-.year-block h3 {
-  margin-top: 0;
-  font-size: 22px;
-  color: #4980E6;
-}
-/* ===== TRUE CENTERED TIMELINE ===== */
-
+/* TIMELINE SPINE */
 .timeline {
   position: relative;
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 20px 0;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 0 80px;
 }
 
-/* Center vertical line */
+/* Center line */
 .timeline::before {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
   left: 50%;
-  width: 4px;
-  background: #4980E6;
+  width: 8px;
+  background: linear-gradient(
+    to bottom,
+    #4980E6,
+    #D17E01,
+    #4980E6
+  );
   transform: translateX(-50%);
+  border-radius: 4px;
 }
 
-/* Event wrapper */
-.timeline-event {
-  position: relative;
-  width: 50%;
-  padding: 20px 40px;
-  box-sizing: border-box;
-}
-
-/* Left / Right positioning */
-.timeline-event.left {
-  left: 0;
-  text-align: right;
-}
-
-.timeline-event.right {
-  left: 50%;
-  text-align: left;
-}
-
-/* Year marker */
-.timeline-marker {
-  display: inline-block;
-  background: #ffffff;
-  color: #222;
-  font-weight: 800;
-  font-size: 18px;
-  padding: 10px 14px;
-  border-radius: 999px;
-  border: 3px solid #D17E01;
-  position: relative;
-  cursor: pointer;
-  z-index: 2;
-}
-
-/* Dot on center line */
-.timeline-marker::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 14px;
-  height: 14px;
-  background: #D17E01;
-  border-radius: 50%;
-  transform: translateY(-50%);
-}
-
-.timeline-event.left .timeline-marker::before {
-  right: -47px;
-}
-
-.timeline-event.right .timeline-marker::before {
-  left: -47px;
-}
-
-/* Content box */
-.timeline-box {
-  background: #ffffff;
-  margin-top: 14px;
-  padding: 18px 22px;
-  border-radius: 14px;
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-  max-width: 340px;
-}
-
-.timeline-event.left .timeline-box {
-  margin-left: auto;
-}
-
-/* Hover preview popup */
-.timeline-marker::after {
-  content: attr(data-preview);
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translate(-50%, -100%);
-  background: #222;
-  color: #fff;
-  font-size: 13px;
-  padding: 10px 14px;
-  border-radius: 8px;
-  width: 260px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  z-index: 10;
-}
-
-.timeline-marker:hover::after {
-  opacity: 1;
-  transform: translate(-50%, -115%);
-}
-
-/* Responsive: stack on mobile */
-@media (max-width: 800px) {
-  .timeline::before {
-    left: 16px;
-  }
-
-  .timeline-event {
-    width: 100%;
-    padding-left: 60px;
-    padding-right: 20px;
-    text-align: left;
-  }
-
-  .timeline-event.right {
-    left: 0;
-  }
-
-  .timeline-marker::before {
-    left: -38px !important;
-  }
-
-  .timeline-box {
-    max-width: 100%;
-  }
-}
+/* Individual events*
