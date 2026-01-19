@@ -380,3 +380,12 @@ body {
 }
 
 /* Individual events*
+/* === TIMELINE DEBUG — YOU SHOULD SEE RED === */
+.timeline {
+  background: rgba(255, 0, 0, 0.1) !important;
+  min-height: 400px !important;
+}
+
+.timeline * {
+  outline: 1px dashed red !important;
+}
