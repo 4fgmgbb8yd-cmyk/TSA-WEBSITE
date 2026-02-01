@@ -1198,5 +1198,247 @@ body {
 @media (max-width: 800px) {
   .landmark img {
     height: 280px;
+    .landmarks {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+/* base spacing for each row */
+.landmark {
+  margin-bottom: 90px;
+}
+
+/* split layout */
+.landmark--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); /* text a bit wider */
+  gap: 50px;
+  align-items: center;
+}
+
+/* reverse every other block */
+.landmark--reverse {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+}
+
+.landmark--reverse .landmark__text {
+  order: 2;
+}
+
+.landmark--reverse .landmark__image {
+  order: 1;
+}
+
+/* image panel */
+.landmark__image {
+  height: 360px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+}
+
+.landmark__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* text styles to match the hero feel */
+.landmark__eyebrow {
+  margin: 0 0 10px;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #c53b2f;
+}
+
+.landmark__title {
+  margin: 0 0 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  line-height: 1.1;
+  color: #121212;
+}
+
+.landmark__body {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* mobile: stack */
+@media (max-width: 900px) {
+  .landmark--split,
+  .landmark--reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .landmark__text,
+  .landmark__image {
+    order: 0; /* ignore reverse on small screens */
+  }
+
+  .landmark__image {
+    height: 260px;
   }
 }
+
+  }
+}/* Slightly tighter vertical spacing for non-hero splits */
+.feature-split--landmark {
+  padding: clamp(40px, 5vw, 64px) 0;
+  border-top: 1px solid #f0f0f0;   /* subtle divider between stories */
+}
+
+/* Alternate layout: image left, text right */
+.feature-split--reverse .feature-split__left {
+  order: 2;
+}
+
+.feature-split--reverse .feature-split__right {
+  order: 1;
+}
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+  color: #222;
+  background: #fff;
+}
+
+/* ===== NAV ===== */
+
+.top-bar {
+  background: #4980E6;
+  border-bottom: 4px solid #D17E01;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-title {
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.site-nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* ===== FEATURE SPLIT ===== */
+
+.feature-split {
+  padding: clamp(56px, 7vw, 96px) 0;
+}
+
+.feature-split__inner {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+  display: grid;
+  /* 🔑 same width columns so images are always the same size */
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(36px, 6vw, 72px);
+  align-items: center;
+}
+
+/* text */
+.feature-split__text {
+  max-width: 500px;
+}
+
+.feature-split__eyebrow {
+  margin-bottom: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  color: #c53b2f;
+}
+
+.feature-split__title {
+  font-family: Georgia, serif;
+  font-size: clamp(36px, 4.5vw, 52px);
+  margin: 0 0 16px;
+}
+
+.feature-split__body {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* image — LOCKED SIZE + LOCKED ASPECT RATIO */
+.feature-split__media {
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* same shape for every image */
+  max-height: 400px;      /* keeps them from getting too tall */
+}
+
+.feature-split__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* consistent crop */
+  border-radius: 28px;
+  box-shadow: 0 14px 36px rgba(0,0,0,0.12);
+}
+
+/* reverse layout: just swap positions */
+.feature-split--reverse .feature-split__text {
+  order: 2;
+}
+.feature-split--reverse .feature-split__media {
+  order: 1;
+}
+
+/* spacing between landmarks */
+.feature-split--landmark {
+  border-top: 1px solid #f0f0f0;
+}
+
+/* ===== FOOTER ===== */
+
+.footer {
+  text-align: center;
+  padding: 30px 16px;
+  border-top: 1px solid #eee;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 850px) {
+  .feature-split__inner {
+    grid-template-columns: 1fr;
+  }
+
+  /* keep aspect ratio, just relax height cap on small screens */
+  .feature-split__media {
+    max-height: none;
+  }
+}
+
