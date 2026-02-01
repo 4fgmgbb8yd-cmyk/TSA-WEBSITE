@@ -2,61 +2,129 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Landmarks</title>
+  <title>Landmarks - History of Our Town</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<div id="site-nav"></div>
 <body>
 
+<header class="top-bar">
+  <div class="nav-container">
+    <div class="site-title">History of Our Local Area</div>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="people.html">Important People</a>
+      <a href="landmarks.html">Landmarks</a>
+      <a href="sources.html">Sources</a>
+    </nav>
+  </div>
+</header>
 
-<script>
-fetch("nav.html")
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("nav-placeholder").innerHTML = data;
-  });
-</script>
+<main>
 
-<main class="landmarks-container">
-
-  <section class="landmark">
-    <img src="https://picsum.photos/1400/700?random=1">
-    <h2>Landmark One</h2>
-    <p>Description for landmark one goes here.</p>
+  <!-- LANDMARK 1 -->
+  <section class="feature-split feature-split--landmark">
+    <div class="feature-split__inner">
+      <div class="feature-split__text">
+        <p class="feature-split__eyebrow">LANDMARK</p>
+        <h2 class="feature-split__title">Landmark One</h2>
+        <p class="feature-split__body">
+          Description for landmark one goes here. Add a few sentences to give it
+          a feature-story feel.
+        </p>
+      </div>
+      <div class="feature-split__media">
+        <img src="https://picsum.photos/1400/900?random=1" alt="Landmark One">
+      </div>
+    </div>
   </section>
 
-  <section class="landmark">
-    <img src="https://picsum.photos/1400/700?random=2">
-    <h2>Landmark Two</h2>
-    <p>Description for landmark two goes here.</p>
+  <!-- LANDMARK 2 -->
+  <section class="feature-split feature-split--landmark feature-split--reverse">
+    <div class="feature-split__inner">
+      <div class="feature-split__text">
+        <p class="feature-split__eyebrow">LANDMARK</p>
+        <h2 class="feature-split__title">Landmark Two</h2>
+        <p class="feature-split__body">
+          Description for landmark two goes here.
+        </p>
+      </div>
+      <div class="feature-split__media">
+        <img src="https://picsum.photos/1400/900?random=2" alt="Landmark Two">
+      </div>
+    </div>
   </section>
 
-  <section class="landmark">
-    <img src="https://picsum.photos/1400/700?random=3">
-    <h2>Landmark Three</h2>
-    <p>Description for landmark three goes here.</p>
+  <!-- LANDMARK 3 -->
+  <section class="feature-split feature-split--landmark">
+    <div class="feature-split__inner">
+      <div class="feature-split__text">
+        <p class="feature-split__eyebrow">LANDMARK</p>
+        <h2 class="feature-split__title">Landmark Three</h2>
+        <p class="feature-split__body">
+          Description for landmark three goes here.
+        </p>
+      </div>
+      <div class="feature-split__media">
+        <img src="https://picsum.photos/1400/900?random=3" alt="Landmark Three">
+      </div>
+    </div>
   </section>
 
-  <section class="landmark">
-    <img src="https://picsum.photos/1400/700?random=4">
-    <h2>Landmark Four</h2>
-    <p>Description for landmark four goes here.</p>
+  <!-- LANDMARK 4 -->
+  <section class="feature-split feature-split--landmark feature-split--reverse">
+    <div class="feature-split__inner">
+      <div class="feature-split__text">
+        <p class="feature-split__eyebrow">LANDMARK</p>
+        <h2 class="feature-split__title">Landmark Four</h2>
+        <p class="feature-split__body">
+          Description for landmark four goes here.
+        </p>
+      </div>
+      <div class="feature-split__media">
+        <img src="https://picsum.photos/1400/900?random=4" alt="Landmark Four">
+      </div>
+    </div>
   </section>
 
-  <section class="landmark">
-    <img src="https://picsum.photos/1400/700?random=5">
-    <h2>Landmark Five</h2>
-    <p>Description for landmark five goes here.</p>
+  <!-- LANDMARK 5 -->
+  <section class="feature-split feature-split--landmark">
+    <div class="feature-split__inner">
+      <div class="feature-split__text">
+        <p class="feature-split__eyebrow">LANDMARK</p>
+        <h2 class="feature-split__title">Landmark Five</h2>
+        <p class="feature-split__body">
+          Description for landmark five goes here.
+        </p>
+      </div>
+      <div class="feature-split__media">
+        <img src="https://picsum.photos/1400/900?random=5" alt="Landmark Five">
+      </div>
+    </div>
   </section>
 
-  <section class="landmark">
-    <img src="https://picsum.photos/1400/700?random=6">
-    <h2>Landmark Six</h2>
-    <p>Description for landmark six goes here.</p>
+  <!-- LANDMARK 6 -->
+  <section class="feature-split feature-split--landmark feature-split--reverse">
+    <div class="feature-split__inner">
+      <div class="feature-split__text">
+        <p class="feature-split__eyebrow">LANDMARK</p>
+        <h2 class="feature-split__title">Landmark Six</h2>
+        <p class="feature-split__body">
+          Description for landmark six goes here.
+        </p>
+      </div>
+      <div class="feature-split__media">
+        <img src="https://picsum.photos/1400/900?random=6" alt="Landmark Six">
+      </div>
+    </div>
   </section>
 
 </main>
 
+<footer class="footer">
+  <p>Created by [Your Name] © 2025</p>
+</footer>
+
 </body>
-   <script src="js/includes.js"></script>
 </html>
+
