@@ -2,31 +2,102 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Landmarks - History of Our Town</title>
+  <title>Famous Landmarks</title>
+
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="landmarks.css">
 </head>
 <body>
 
-<div id="site-nav"></div>
+<!-- NAV -->
 
 
-<main class="main-container">
+<section class="landmarks">
 
-  <section class="content-section">
-    <h2>Important Landmarks</h2>
-    <ul class="styled-list">
-      <li><strong>1820:</strong> How it was created</li>
-      <li><strong>1885:</strong> Who blah blah</li>
-      <li><strong>1950:</strong> Why it is important</li>
-    </ul>
-  </section>
+  <!-- LANDMARK 1 -->
+  <div class="landmark">
+    <div class="landmark-image">
+      <img src="images/landmark1.jpg" alt="">
+      <h2>Landmark One</h2>
+    </div>
+    <div class="landmark-text">
+      <p>Description of landmark goes here.</p>
+    </div>
+  </div>
 
-</main>
+  <!-- LANDMARK 2 -->
+  <div class="landmark reverse">
+    <div class="landmark-image">
+      <img src="images/landmark2.jpg" alt="">
+      <h2>Landmark Two</h2>
+    </div>
+    <div class="landmark-text">
+      <p>Description of landmark goes here.</p>
+    </div>
+  </div>
 
-<footer class="footer">
-  <p>Created by [Your Name] © 2025</p>
-</footer>
+  <!-- LANDMARK 3 -->
+  <div class="landmark">
+    <div class="landmark-image">
+      <img src="images/landmark3.jpg" alt="">
+      <h2>Landmark Three</h2>
+    </div>
+    <div class="landmark-text">
+      <p>Description of landmark goes here.</p>
+    </div>
+  </div>
+
+  <!-- LANDMARK 4 -->
+  <div class="landmark reverse">
+    <div class="landmark-image">
+      <img src="images/landmark4.jpg" alt="">
+      <h2>Landmark Four</h2>
+    </div>
+    <div class="landmark-text">
+      <p>Description of landmark goes here.</p>
+    </div>
+  </div>
+
+  <!-- LANDMARK 5 -->
+  <div class="landmark">
+    <div class="landmark-image">
+      <img src="images/landmark5.jpg" alt="">
+      <h2>Landmark Five</h2>
+    </div>
+    <div class="landmark-text">
+      <p>Description of landmark goes here.</p>
+    </div>
+  </div>
+
+  <!-- LANDMARK 6 -->
+  <div class="landmark reverse">
+    <div class="landmark-image">
+      <img src="images/landmark6.jpg" alt="">
+      <h2>Landmark Six</h2>
+    </div>
+    <div class="landmark-text">
+      <p>Description of landmark goes here.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- NAV SCRIPT -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const navContainer = document.getElementById("site-nav");
+  if (!navContainer) return;
+
+  const isGithubPages = location.hostname.endsWith("github.io");
+  const repoName = isGithubPages ? "/" + location.pathname.split("/")[1] : "";
+
+  fetch(repoName + "/partials/nav.html")
+    .then(r => r.text())
+    .then(html => navContainer.innerHTML = html)
+    .catch(err => console.error(err));
+});
+</script>
 
 </body>
-  <script src="js/includes.js"></script>
 </html>
+
