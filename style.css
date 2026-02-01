@@ -1007,3 +1007,157 @@ body {
 }
 
 }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #222;
+}
+
+.history {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+/* Layout rows */
+.person {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 120px;
+}
+
+/* Alternate sides */
+.person.reverse {
+  direction: rtl;
+}
+
+.person.reverse > * {
+  direction: ltr;
+}
+
+/* Image container */
+.person-image {
+  width: 100%;
+  height: 360px;               /* fixed photo height */
+  border-radius: 24px;
+  background: #eee;           /* placeholder gray */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Actual image */
+.person-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+/* Placeholder text if no image */
+.person-image::after {
+  content: "Photo goes here";
+  position: absolute;
+  color: #777;
+  font-size: 18px;
+  font-style: italic;
+}
+
+}
+
+/* Text */
+.person-text h2 {
+  font-family: Georgia, serif;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.person-text p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .person {
+    grid-template-columns: 1fr;
+  }
+
+  .person.reverse {
+    direction: ltr;
+  }
+}
+.landmarks {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+/* Rows */
+.landmark {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+  margin-bottom: 120px;
+  align-items: center;
+}
+
+.landmark.reverse {
+  direction: rtl;
+}
+
+.landmark.reverse > * {
+  direction: ltr;
+}
+
+/* Image panel */
+.landmark-image {
+  position: relative;
+  height: 380px;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.landmark-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay title */
+.landmark-image h2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 32px;
+}
+
+/* Text */
+.landmark-text p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .landmark {
+    grid-template-columns: 1fr;
+  }
+
+  .landmark.reverse {
+    direction: ltr;
+  }
+}
