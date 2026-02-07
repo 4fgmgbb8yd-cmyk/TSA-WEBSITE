@@ -1440,5 +1440,16 @@ body {
   .feature-split__media {
     max-height: none;
   }
+}/* ===== LANDMARK COLOR BANDS ===== */
+
+/* base color band for each landmark section */
+.landmark-block {
+  background: #f6f6f6;           /* light grey block */
 }
+
+/* optional: alternate colors every other landmark */
+.landmark-block:nth-of-type(even) {
+  background: #ffffff;           /* back to white on 2, 4, 6... */
+}
+ 
 
