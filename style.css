@@ -968,61 +968,62 @@ body {
 }
 
 /* Layout rows */
-.person {
+.person-block {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
-  margin-bottom: 120px;
+  padding: 40px;
+  border-radius: 12px;
+  margin-bottom: 40px;
 }
 
 /* Alternate sides */
-.person.reverse {
+.person-block.reverse {
   direction: rtl;
 }
 
-.person.reverse > * {
+.person-block.reverse > * {
   direction: ltr;
 }
 
-/* Image container */
-.person-image {
-  width: 100%;
-  height: 360px;               /* fixed photo height */
-  border-radius: 24px;
-  background: #eee;           /* placeholder gray */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+/* Grey & White backgrounds */
+.person-block.grey {
+  background-color: #f5f5f5;
 }
 
-/* Actual image */
+.person-block.white {
+  background-color: #ffffff;
+}
+
+/* Image styling */
+.person-image {
+  width: 100%;
+  height: 360px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #eee;
+}
+
 .person-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 24px;
+  border-radius: 16px;
 }
 
-/* Placeholder text if no image */
-.person-image::after {
-  content: "Photo goes here";
-  position: absolute;
-  color: #777;
-  font-size: 18px;
-  font-style: italic;
-}
-
-}
-
-/* Text */
+/* Name styling */
 .person-text h2 {
   font-family: Georgia, serif;
   font-size: 32px;
+  font-weight: 700;
   margin-bottom: 20px;
+  color: #2c3e50;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 6px;
 }
 
+/* Paragraph styling */
 .person-text p {
   font-size: 16px;
   line-height: 1.7;
@@ -1032,101 +1033,20 @@ body {
 
 /* Mobile */
 @media (max-width: 900px) {
-  .person {
+  .person-block {
     grid-template-columns: 1fr;
+    padding: 20px;
   }
 
-  .person.reverse {
+  .person-block.reverse {
     direction: ltr;
   }
-}
 
-}
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #fff;
-  color: #222;
-}
-
-.history {
-  max-width: 1200px;
-  margin: 80px auto;
-  padding: 0 20px;
-}
-
-/* Layout rows */
-.person {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-  margin-bottom: 120px;
-}
-
-/* Alternate sides */
-.person.reverse {
-  direction: rtl;
-}
-
-.person.reverse > * {
-  direction: ltr;
-}
-
-/* Image container */
-.person-image {
-  width: 100%;
-  height: 360px;               /* fixed photo height */
-  border-radius: 24px;
-  background: #eee;           /* placeholder gray */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-/* Actual image */
-.person-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 24px;
-}
-
-/* Placeholder text if no image */
-.person-image::after {
-  content: "Photo goes here";
-  position: absolute;
-  color: #777;
-  font-size: 18px;
-  font-style: italic;
-}
-
-}
-
-/* Text */
-.person-text h2 {
-  font-family: Georgia, serif;
-  font-size: 32px;
-  margin-bottom: 20px;
-}
-
-.person-text p {
-  font-size: 16px;
-  line-height: 1.7;
-  color: #444;
-  margin-bottom: 16px;
-}
-
-/* Mobile */
-@media (max-width: 900px) {
-  .person {
-    grid-template-columns: 1fr;
+  .person-image {
+    height: 260px;
   }
+}
 
-  .person.reverse {
-    direction: ltr;
-  }
 }
 .landmarks {
   max-width: 1200px;
