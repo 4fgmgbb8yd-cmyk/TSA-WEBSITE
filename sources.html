@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-       <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Research Citations</title>
@@ -84,23 +84,23 @@
             transition: all 0.3s ease;
         }
 
-        .citation-card:nth-child(1)::before {
+        .citation-card:nth-child(5n+1)::before {
             background: #ff9066;
         }
 
-        .citation-card:nth-child(2)::before {
+        .citation-card:nth-child(5n+2)::before {
             background: #a0d468;
         }
 
-        .citation-card:nth-child(3)::before {
+        .citation-card:nth-child(5n+3)::before {
             background: #5fc3e4;
         }
 
-        .citation-card:nth-child(4)::before {
+        .citation-card:nth-child(5n+4)::before {
             background: #ffce54;
         }
 
-        .citation-card:nth-child(5)::before {
+        .citation-card:nth-child(5n+5)::before {
             background: #ac92ec;
         }
 
@@ -211,7 +211,7 @@
     </style>
 </head>
 <body>
-    <div id="site-nav"></div>
+  <div id="site-nav"></div>
     <div class="container">
         <div class="hero">
             <h1>Research Citations</h1>
@@ -220,9 +220,9 @@
         </div>
         
         <div class="citations-grid">
-            <!-- Example Citation 1 -->
+            <!-- Citation 1 -->
             <div class="citation-card">
-                <a href="https://en.wikipedia.org/w/index.php?title=Arthur_Bullard_Newton&oldid=1263012253" target="_blank" class="citation-link">
+                <a href="https://en.wikipedia.org/w/index.php?title=Arthur_Bullard_Newton&oldid=1263012253">
                     <div class="source-name">
                         Wikipedia
                         <span class="arrow">→</span>
@@ -235,7 +235,7 @@
                 </a>
             </div>
 
-            <!-- Example Citation 2 -->
+            <!-- Citation 2 -->
             <div class="citation-card">
                 <a href="https://en.wikipedia.org/w/index.php?title=Luther_F._Tilden&oldid=1301119571" target="_blank" class="citation-link">
                     <div class="source-name">
@@ -250,7 +250,7 @@
                 </a>
             </div>
 
-            <!-- Example Citation 3 -->
+            <!-- Citation 3 -->
             <div class="citation-card">
                 <a href="https://commons.wikimedia.org/w/index.php?title=File:DowntownWInterGardenEarly1900s.jpg&oldid=1053766008" target="_blank" class="citation-link">
                     <div class="source-name">
@@ -265,7 +265,7 @@
                 </a>
             </div>
 
-            <!-- Example Citation 4 -->
+            <!-- Citation 4 -->
             <div class="citation-card">
                 <a href="https://en.wikipedia.org/w/index.php?title=George_Bray_McMillan&oldid=1243349229" target="_blank" class="citation-link">
                     <div class="source-name">
@@ -275,12 +275,12 @@
                     <div class="url-display">wikipedia.org</div>
                     <div class="mla-format">
                         <div class="mla-label">MLA Citation</div>
-                        <div class="mla-text"><em>Wikipedia Contributors. “George Bray McMillan.” Wikipedia, Wikimedia Foundation, 31 Aug. 2024.</em> </div>
+                        <div class="mla-text"><em></em>Wikipedia Contributors. “George Bray McMillan.” Wikipedia, Wikimedia Foundation, 31 Aug. 2024.</div>
                     </div>
                 </a>
             </div>
 
-            <!-- Example Citation 5 -->
+            <!-- Citation 5 -->
             <div class="citation-card">
                 <a href="https://commons.wikimedia.org/w/index.php?title=File:Lakeapopka_01212012.jpg&oldid=1067541681" target="_blank" class="citation-link">
                     <div class="source-name">
@@ -294,13 +294,8 @@
                     </div>
                 </a>
             </div>
-        </div>
-    </div>
-  <div class="container">
-        <div class="hero">
-          
-        <div class="citations-grid">
-            <!-- Example Citation 1 -->
+
+            <!-- Citation 6 -->
             <div class="citation-card">
                 <a href="https://commons.wikimedia.org/w/index.php?title=File:Winter_Garden_Downtown_Dist_Street01.jpg&oldid=1140038451" target="_blank" class="citation-link">
                     <div class="source-name">
@@ -315,7 +310,7 @@
                 </a>
             </div>
 
-            <!-- Example Citation 2 -->
+            <!-- Citation 7 -->
             <div class="citation-card">
                 <a href="http://commons.wikimedia.org/w/index.php?title=File:Winter_Garden_Downtown_Dist_theater01.jpg&oldid=1097019526" target="_blank" class="citation-link">
                     <div class="source-name">
@@ -330,7 +325,7 @@
                 </a>
             </div>
 
-            <!-- Example Citation 3 -->
+            <!-- Citation 8 -->
             <div class="citation-card">
                 <a href="https://commons.wikimedia.org/w/index.php?title=File:DowntownWInterGardenEarly1900s.jpg&oldid=1053766008" target="_blank" class="citation-link">
                     <div class="source-name">
@@ -345,9 +340,9 @@
                 </a>
             </div>
 
-            <!-- Example Citation 4 -->
+            <!-- Citation 9 -->
             <div class="citation-card">
-                <a href="https://commons.wikimedia.org/w/index.php?%20title=File:Winter%20Garden%20Downtown%20Dist_RR_museum01.jog&oldid=926294323" target="_blank" class="citation-link">
+                <a href="https://commons.wikimedia.org/w/index.php?%20title=File:Winter%20Garden%20Downtown%20Dist_RR_museum01.jog&oldid=926294323" class="citation-link">
                     <div class="source-name">
                         Wikipedia
                         <span class="arrow">→</span>
@@ -355,28 +350,27 @@
                     <div class="url-display">wikipedia.org</div>
                     <div class="mla-format">
                         <div class="mla-label">MLA Citation</div>
-                        <div class="mla-text"><em>“File:Winter Garden Downtown Dist RR Museum01.Jpg - Wikimedia Commons.” Wikimedia.org, 16 June 2007, commons.wikimedia.org/w/index.php?%20title=File:Winter%20Garden%20Downtown%20Dist_RR_museum01.jog&oldid=926294323. Accessed 15 Feb. 2026.</em> </div>
+                        <div class="mla-text"><em></em>“File:Winter Garden Downtown Dist RR Museum01.Jpg - Wikimedia Commons.” Wikimedia.org, 16 June 2007, commons.wikimedia.org/w/index.php?%20title=File:Winter%20Garden%20Downtown%20Dist_RR_museum01.jog&oldid=926294323. Accessed 15 Feb. 2026.</div>
                     </div>
                 </a>
             </div>
 
-            <!-- Example Citation 5 -->
+            <!-- Citation 10 -->
             <div class="citation-card">
                 <a href="https://commons.wikimedia.org/w/index.php?title=File:Winter%20Garden%20TildenHouse01.jpg&oldid=1160703440" target="_blank" class="citation-link">
                     <div class="source-name">
                         Wikipedia
                         <span class="arrow">→</span>
                     </div>
-                    <div class="url-display">wikipedia.org</div>
+                    <div class="url-display">wikipdia.org</div>
                     <div class="mla-format">
                         <div class="mla-label">MLA Citation</div>
                         <div class="mla-text"><em></em>“File:Winter Garden Tilden House01.Jpg - Wikimedia Commons.” Wikimedia.org, 16 June 2007, commons.wikimedia.org/w/index.php?title=File:Winter%20Garden%20TildenHouse01.jpg&oldid=1160703440. Accessed 15 Feb. 2026</div>
                     </div>
                 </a>
             </div>
-        </div>
-    </div>
-     <!-- Example Citation 4 -->
+
+            <!-- Citation 11 -->
             <div class="citation-card">
                 <a href="https://commons.wikimedia.org/w/index.php?title=File:ApopkaCitrusGrowersAssociation7128.JPG&oldid=1056387422" target="_blank" class="citation-link">
                     <div class="source-name">
@@ -386,12 +380,12 @@
                     <div class="url-display">wikipedia.org</div>
                     <div class="mla-format">
                         <div class="mla-label">MLA Citation</div>
-                        <div class="mla-text"><em>“File:ApopkaCitrusGrowersAssociation7128.JPG - Wikimedia Commons.” Wikimedia.org, 13 Oct. 2015, commons.wikimedia.org/w/index.php?title=File:ApopkaCitrusGrowersAssociation7128.JPG&oldid=1056387422. Accessed 15 Feb. 2026.</em> </div>
+                        <div class="mla-text"><em></em>“File:ApopkaCitrusGrowersAssociation7128.JPG - Wikimedia Commons.” Wikimedia.org, 13 Oct. 2015, commons.wikimedia.org/w/index.php?title=File:ApopkaCitrusGrowersAssociation7128.JPG&oldid=1056387422. Accessed 15 Feb. 2026.</div>
                     </div>
                 </a>
             </div>
 
-            <!-- Example Citation 5 -->
+            <!-- Citation 12 -->
             <div class="citation-card">
                 <a href="https://commons.wikimedia.org/w/index.php?title=File:Lakeapopka_01212012.jpg&oldid=1067541681" target="_blank" class="citation-link">
                     <div class="source-name">
@@ -405,9 +399,216 @@
                     </div>
                 </a>
             </div>
-        </div>
-    </div>
-</body>
-    <script src="js/includes.js"></script>
-</html>
 
+            <!-- Citation 13 -->
+            <div class="citation-card">
+                <a href=https://commons.wikimedia.org/wiki/Main_Page target="_blank" class="citation-link">
+                    <div class="source-name">
+                        Wikipedia
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">wikipedia.org</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text"><em></em>Wikimedia Commons. “Wikimedia Commons.” Wikimedia.org, 2016, commons.wikimedia.org/wiki/Main_Page.</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Citation 14 -->
+            <div class="citation-card">
+                <a href="https://commons.wikimedia.org/w/index.php?title=File:Train%20Station08(10580081483).jpg&oldid=878167694" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        Wikipedia
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">wikipedai</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text"><em></em>“File:Train Station08 (10580081483).Jpg - Wikimedia Commons.” Wikimedia.org, 2 Nov. 1900, commons.wikimedia.org/w/index.php?title=File:Train%20Station08(10580081483).jpg&oldid=878167694. Accessed 15 Feb. 2026.</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Citation 15 -->
+            <div class="citation-card">
+                <a href="https://commons.wikimedia.org/w/index.php?title=File:The_new_international_encyclopaedia_(1905)_(14781836215).jpg&oldid=894797885" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        Wikipedia
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">wikipedia.org</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text"><em></em>“File:The New International Encyclopaedia (1905) (14781836215).Jpg - Wikimedia Commons.” Wikimedia.org, 2022, commons.wikimedia.org/w/index.php?title=File:The_new_international_encyclopaedia_(1905)_(14781836215).jpg&oldid=894797885. Accessed 15 Feb. 2026.</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Citation 16 -->
+            <div class="citation-card">
+                <a href="_(1905)_(14781836215).jpg&oldid=894797885" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        Wikipedia
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">wikipedia.org</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text"><em></em>Wikimedia Commons. “Wikimedia Commons.” Wikimedia.org, 2016, commons.wikimedia.org/wiki/Main_Page.</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Citation 17 -->
+            <div class="citation-card">
+                <a href="https://commons.wikimedia.org/w/index.php?title=File:Men_working_at_the_orange_grove,_from_Robert_N._Dennis_collection_of_stereoscopic_views.jpg&oldid=296731480" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        Wikipedia
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">wikipedia.org</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text"><em></em>“File:Men Working at the Orange Grove, from Robert N. Dennis Collection of Stereoscopic Views.Jpg.” Wikimedia Commons, commons.wikimedia.org/w/index.php?title=File%3AMen_working_at_the_orange_grove%2C_from_Robert_N._Dennis_collection_of_stereoscopic_views.jpg&oldid=296731480. Accessed 15 Feb. 2026. </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Citation 18 -->
+            <div class="citation-card">
+                <a href="https://commons.wikimedia.org/w/index.php?title=File:Queensland_State_Archives_5159_Orange_Trees_near_Peachester_c_1899.png&oldid=946074049" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        Wikipedia
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">wikipedia.org</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text"><em></em>“File:Queensland State Archives 5159 Orange Trees near Peachester c 1899.Png - Wikimedia Commons.” Wikimedia.org, 2022, commons.wikimedia.org/w/index.php?title=File:Queensland_State_Archives_5159_Orange_Trees_near_Peachester_c_1899.png&oldid=946074049. Accessed 15 Feb. 2026.</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Citation 19 -->
+            <div class="citation-card">
+                <a href="https://commons.wikimedia.org/w/index.php?title=File:Yosemite-Valley-Railroad-Locomotive-Number-20.jpg&oldid=993574605" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        Wikipedia
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">wikipdeia.org</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text"><em></em>“File:Yosemite-Valley-Railroad-Locomotive-Number-20.Jpg - Wikimedia Commons.” Wikimedia.org, 2022, commons.wikimedia.org/w/index.php?title=File:Yosemite-Valley-Railroad-Locomotive-Number-20.jpg&oldid=993574605. Accessed 15 Feb. 2026.</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Citation 20 -->
+            <div class="citation-card">
+                <a href="https://commons.wikimedia.org/w/index.php?title=File:A_New_settlement_in_Florida,_by_Styles,_A._F.,_1832-1910.jpg&oldid=995962664" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        Wikipedia
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">wikipedia.org</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text"><em></em>“File:A New Settlement in Florida, by Styles, A. F., 1832-1910.JPG.” Wikimedia Commons, commons.wikimedia.org/w/index.php?title=File%3AA_New_settlement_in_Florida%2C_by_Styles%2C_A._F.%2C_1832-1910.jpg&oldid=995962664. Accessed 15 Feb. 2026. </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Citation 21 -->
+            <div class="citation-card">
+                <a href="https://commons.wikimedia.org/w/index.php?title=File:Winter_Garden_Downtown_Dist_Bldg01.jpg&oldid=1162206355" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        Wikipeida
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">wikipedia.org</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                      <div class="mla-text"><em></em>“File:Winter Garden Downtown Dist Bldg01.Jpg - Wikimedia Commons.” Wikimedia.org, 16 June 2007, commons.wikimedia.org/w/index.php?title=File:Winter_Garden_Downtown_Dist_Bldg01.jpg&oldid=1162206355. Accessed 15 Feb. 2026.</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Citation 22 -->
+            <div class="citation-card">
+                <a href="https://commons.wikimedia.org/w/index.php?title=File:Winter_Garden_Downtown_Dist_Bldg04a.jpg&oldid=1134518179" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        Wikipedia
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">wikipedia.org</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text"><em></em>“File:A New Settlement in Florida, by Styles, A. F., 1832-1910.JPG.” Wikimedia Commons, commons.wikimedia.org/w/index.php?title=File%3AA_New_settlement_in_Florida%2C_by_Styles%2C_A._F.%2C_1832-1910.jpg&oldid=995962664. Accessed 15 Feb. 2026. </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Citation 23 -->
+            <div class="citation-card">
+                <a href="https://commons.wikimedia.org/w/index.php?title=File:ApopkaCitrusGrowersAssociation7130.JPG&oldid=1056387433" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        Wikipedia
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">wikipedia.org</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text"><em></em>“File:ApopkaCitrusGrowersAssociation7130.JPG - Wikimedia Commons.” Wikimedia.org, 13 Oct. 2015, commons.wikimedia.org/w/index.php?title=File:ApopkaCitrusGrowersAssociation7130.JPG&oldid=1056387433. Accessed 15 Feb. 2026.</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Citation 24 -->
+            <div class="citation-card">
+                <a href="https://commons.wikimedia.org/w/index.php?title=File:WOTwb_WG_around_monument.jpg&oldid=458972673" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        Wikipdedia
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">wikipedia.org</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text"><em></em>“File:WOTwb WG around Monument.jpg - Wikimedia Commons.” Wikimedia.org, 2022, commons.wikimedia.org/w/index.php?title=File:WOTwb_WG_around_monument.jpg&oldid=458972673. Accessed 15 Feb. 2026.</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Citation 25 -->
+            <div class="citation-card">
+                <a href="https://commons.wikimedia.org/w/index.php?title=File:Winter_Garden_watertower01.jpg&oldid=958064026" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        Wikipedia
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">wikipedia.org</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text"><em></em>“File:Winter Garden Watertower01.Jpg - Wikimedia Commons.” Wikimedia.org, 16 June 2007, commons.wikimedia.org/w/index.php?title=File:Winter_Garden_watertower01.jpg&oldid=958064026. Accessed 15 Feb. 2026.</div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Citation 26 -->
+            <div class="citation-card">
+                <a href="https://www.cwgdn.com" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        Winter Garden Website
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">cwdgn.com</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text"><em></em>“Winter Garden, FL | Official Website.” Cwgdn.com, 29 Sept. 2024, www.cwgdn.com.</div>
+                    </div>
+                </a>
+          </div>
+</body>
+  <script src="js/includes.js"></script>
+</html>
