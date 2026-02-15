@@ -1,32 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sources - History of Our Town</title>
   <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Citations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(180deg, #e8f4f8 0%, #f5e6f0 50%, #fff5e6 100%);
+            color: #2d3748;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .hero {
+            margin-bottom: 60px;
+            max-width: 650px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #1a202c;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 1.15em;
+            color: #4a5568;
+            font-weight: 400;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .hover-hint {
+            font-size: 0.95em;
+            color: #718096;
+        }
+
+        .citations-grid {
+            display: grid;
+            gap: 16px;
+            max-width: 650px;
+        }
+
+        .citation-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 24px 28px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .citation-card::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .citation-card:nth-child(1)::before {
+            background: #ff9066;
+        }
+
+        .citation-card:nth-child(2)::before {
+            background: #a0d468;
+        }
+
+        .citation-card:nth-child(3)::before {
+            background: #5fc3e4;
+        }
+
+        .citation-card:nth-child(4)::before {
+            background: #ffce54;
+        }
+
+        .citation-card:nth-child(5)::before {
+            background: #ac92ec;
+        }
+
+        .citation-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .citation-card:hover::before {
+            width: 4px;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform: translateY(0);
+            border-radius: 12px 0 0 12px;
+        }
+
+        .citation-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding-left: 24px;
+        }
+
+        .source-name {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .arrow {
+            color: #a0aec0;
+            transition: transform 0.3s ease;
+            font-size: 1.2em;
+        }
+
+        .citation-card:hover .arrow {
+            transform: translateX(4px);
+            color: #4a5568;
+        }
+
+        .url-display {
+            font-size: 0.85em;
+            color: #718096;
+            margin-bottom: 12px;
+            word-break: break-all;
+            font-weight: 500;
+        }
+
+        .mla-format {
+            background: #f7fafc;
+            border-left: 3px solid #cbd5e0;
+            padding: 16px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            line-height: 1.7;
+            color: #4a5568;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-top: 12px;
+        }
+
+        .citation-card:hover .mla-format {
+            max-height: 400px;
+            opacity: 1;
+        }
+
+        .mla-label {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-size: 0.75em;
+            letter-spacing: 1px;
+        }
+
+        .mla-text {
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .container {
+                padding: 60px 20px;
+            }
+            
+            .citation-card {
+                padding: 20px 24px;
+            }
+
+            .citation-link {
+                padding-left: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
+   <div id="site-nav"></div>
+    <div class="container">
+        <div class="hero">
+            <h1>Research Citations</h1>
+            <p class="subtitle">Explore the town's rich history, learn about key figures,<br>and discover iconic landmarks.</p>
+            <p class="hover-hint">Hover over any source to view MLA citation format</p>
+        </div>
+        
+        <div class="citations-grid">
+            <!-- Example Citation 1 -->
+            <div class="citation-card">
+                <a href="https://www.nationalgeographic.com/animals/mammals/facts/african-elephant" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        National Geographic - African Elephants
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">nationalgeographic.com</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text">"African Elephant." <em>National Geographic</em>, National Geographic Society, www.nationalgeographic.com/animals/mammals/facts/african-elephant. Accessed 14 Feb. 2026.</div>
+                    </div>
+                </a>
+            </div>
 
-<div id="site-nav"></div>
+            <!-- Example Citation 2 -->
+            <div class="citation-card">
+                <a href="https://www.britannica.com/science/climate-change" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        Encyclopedia Britannica - Climate Change
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">britannica.com</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text">"Climate Change." <em>Encyclopædia Britannica</em>, Encyclopædia Britannica, Inc., www.britannica.com/science/climate-change. Accessed 14 Feb. 2026.</div>
+                    </div>
+                </a>
+            </div>
 
+            <!-- Example Citation 3 -->
+            <div class="citation-card">
+                <a href="https://www.nasa.gov/mission_pages/apollo/apollo11.html" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        NASA - Apollo 11 Mission
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">nasa.gov</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text">"Apollo 11 Mission Overview." <em>NASA</em>, National Aeronautics and Space Administration, www.nasa.gov/mission_pages/apollo/apollo11.html. Accessed 14 Feb. 2026.</div>
+                    </div>
+                </a>
+            </div>
 
-<main class="main-container">
+            <!-- Example Citation 4 -->
+            <div class="citation-card">
+                <a href="https://www.smithsonianmag.com/science-nature/what-is-quantum-computing-180968406/" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        Smithsonian Magazine - Quantum Computing
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">smithsonianmag.com</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text">"What Is Quantum Computing?" <em>Smithsonian Magazine</em>, Smithsonian Institution, www.smithsonianmag.com/science-nature/what-is-quantum-computing-180968406/. Accessed 14 Feb. 2026.</div>
+                    </div>
+                </a>
+            </div>
 
-  <section class="content-section">
-    <h2>Sources</h2>
-    <ul class="styled-list">
-      <li><strong>1820:</strong> Source</li>
-      <li><strong>1885:</strong> Source</li>
-      <li><strong>1950:</strong> Source</li>
-    </ul>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <p>Created by [Your Name] © 2025</p>
-</footer>
-
+            <!-- Example Citation 5 -->
+            <div class="citation-card">
+                <a href="https://www.who.int/health-topics/mental-health" target="_blank" class="citation-link">
+                    <div class="source-name">
+                        World Health Organization - Mental Health
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="url-display">who.int</div>
+                    <div class="mla-format">
+                        <div class="mla-label">MLA Citation</div>
+                        <div class="mla-text">"Mental Health." <em>World Health Organization</em>, World Health Organization, www.who.int/health-topics/mental-health. Accessed 14 Feb. 2026.</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
-  <script src="js/includes.js"></script>
+<script src="js/includes.js"></script>
 </html>
