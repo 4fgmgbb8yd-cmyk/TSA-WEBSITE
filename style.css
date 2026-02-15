@@ -96,8 +96,6 @@ body {
   100% { transform: translateY(-50%) scale(1); }
 }
 
-/* ===== HERO (PHOTO CARD) ===== */
-
 * {
     margin: 0;
     padding: 0;
