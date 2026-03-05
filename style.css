@@ -1626,3 +1626,16 @@ body {
     font-size: 28px;
   }
 }
+.person-image {
+    margin: 40px auto;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+.person-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
