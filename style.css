@@ -1626,13 +1626,13 @@ body {
     font-size: 28px;
   }
 }
-.person-image {
+}.work-log-image {
     margin: 40px auto;
     max-width: 900px;
     padding: 0 20px;
 }
 
-.person-image img {
+.work-log-image img {
     width: 100%;
     height: auto;
     display: block;
